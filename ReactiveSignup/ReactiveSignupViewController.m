@@ -1,5 +1,6 @@
 #import "ReactiveSignupViewController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <libextobjc/EXTScope.h>
 
 @interface ReactiveSignupViewController ()
 
@@ -20,14 +21,17 @@
 }
 
 - (void)configureImageView {
+    // Instead of using a custom setter with a side effect, we can use the signal
+    // from our photo property to keep the imageView's image up to date.
     RAC(self.imageView, image) = [self.photoSignal map:^UIImage *(UIImage *image) {
         return image;
     }];
 }
 
 - (void)configurePhotoButton {
+    // For more on why we're using @weakify and @strongify, see:
+    // https://github.com/ReactiveCocoa/ReactiveCocoa/blob/master/Documentation/MemoryManagement.md#signals-derived-from-self
     @weakify(self);
-    __weak id weakSelf = self;
     [self.photoSignal subscribeNext:^(UIImage *image) {
         @strongify(self);
         if (image) {
@@ -36,6 +40,7 @@
         }
         [self.photoButton setTitle:@"Add photo" forState:UIControlStateNormal];
     }];
+    // Instead of using the target-action pattern, we can simply subscribe to every UIControlEventTouchUpInside.
     [[self.photoButton rac_signalForControlEvents:UIControlEventTouchUpInside]
      subscribeNext:^(UIButton *button) {
          @strongify(self);
@@ -46,6 +51,7 @@
 }
 
 - (void)configureTextFields {
+    // Again, instead of using the target-action pattern, we can subscribe to UIControlEvents.
     RAC(self.usernameTextField, textColor) =
     [[self.usernameTextField rac_signalForControlEvents:
       UIControlEventEditingDidBegin | UIControlEventEditingChanged | UIControlEventEditingDidEnd]
@@ -61,6 +67,7 @@
 }
 
 - (void)configureSubmitButton {
+    // We can compose multiple signals with combineLatest:reduce:
     RAC(self.submitButton, enabled) =
     [RACSignal combineLatest:@[RACObserve(self, photo),
                                self.usernameTextField.rac_textSignal,
