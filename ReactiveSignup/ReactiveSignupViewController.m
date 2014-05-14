@@ -29,7 +29,7 @@
 }
 
 - (void)configurePhotoButton {
-    // For more on why we're using @weakify and @strongify, see:
+    // For more on @weakify and @strongify, see:
     // https://github.com/ReactiveCocoa/ReactiveCocoa/blob/master/Documentation/MemoryManagement.md#signals-derived-from-self
     @weakify(self);
     [self.photoSignal subscribeNext:^(UIImage *image) {
@@ -51,7 +51,6 @@
 }
 
 - (void)configureTextFields {
-    // Again, instead of using the target-action pattern, we can subscribe to UIControlEvents.
     RAC(self.usernameTextField, textColor) =
     [[self.usernameTextField rac_signalForControlEvents:
       UIControlEventEditingDidBegin | UIControlEventEditingChanged | UIControlEventEditingDidEnd]
@@ -67,7 +66,6 @@
 }
 
 - (void)configureSubmitButton {
-    // We can compose multiple signals with combineLatest:reduce:
     RAC(self.submitButton, enabled) =
     [RACSignal combineLatest:@[RACObserve(self, photo),
                                self.usernameTextField.rac_textSignal,

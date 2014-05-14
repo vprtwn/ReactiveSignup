@@ -84,20 +84,21 @@ PODS:
   - libextobjc/RuntimeExtensions (0.3)
   - libextobjc/UmbrellaHeader (0.3)
   - libffi (3.0.13)
-  - ReactiveCocoa (2.1.8):
+  - ReactiveCocoa (2.3):
+    - ReactiveCocoa/UI
+  - ReactiveCocoa/Core (2.3):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3)
+  - ReactiveCocoa/UI (2.3):
     - ReactiveCocoa/Core
-    - ReactiveCocoa/no-arc
-  - ReactiveCocoa/Core (2.1.8):
-    - ReactiveCocoa/no-arc
-  - ReactiveCocoa/no-arc (2.1.8)
 
 DEPENDENCIES:
-  - libextobjc (= 0.3)
-  - ReactiveCocoa (= 2.1.8)
+  - libextobjc
+  - ReactiveCocoa (= 2.3)
 
 SPEC CHECKSUMS:
   libextobjc: 820a79dbbbc498611e04fffd07d2d52a5588e7ac
   libffi: 64ef39353e747bb2b25e1026afd96a157bf9231c
-  ReactiveCocoa: 0db710a0afa1c627a64470e5c912a3870d4854ae
+  ReactiveCocoa: dde7b11a14954edf789e7343b2c32e595caabd01
 
-COCOAPODS: 0.28.0
+COCOAPODS: 0.32.1
