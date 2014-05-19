@@ -52,17 +52,14 @@
 
 - (void)configureTextFields {
     RAC(self.usernameTextField, textColor) =
-    [[self.usernameTextField rac_signalForControlEvents:
-      UIControlEventEditingDidBegin | UIControlEventEditingChanged | UIControlEventEditingDidEnd]
-     map:^UIColor *(UITextField *sender) {
-         return sender.editing ? [UIColor orangeColor] : [UIColor blackColor];
-     }];
+    [RACObserve(self.usernameTextField, editing) map:^UIColor *(NSNumber *editing) {
+         return editing ? [UIColor orangeColor] : [UIColor blackColor];
+    }];
+
     RAC(self.passwordTextField, textColor) =
-    [[self.passwordTextField rac_signalForControlEvents:
-      UIControlEventEditingDidBegin | UIControlEventEditingChanged | UIControlEventEditingDidEnd]
-     map:^UIColor *(UITextField *sender) {
-         return sender.editing ? [UIColor orangeColor] : [UIColor blackColor];
-     }];
+    [RACObserve(self.passwordTextField, editing) map:^UIColor *(NSNumber *editing) {
+         return editing ? [UIColor orangeColor] : [UIColor blackColor];
+    }];
 }
 
 - (void)configureSubmitButton {
