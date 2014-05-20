@@ -13,7 +13,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.photoSignal = RACObserve(self, photo);
     [self configureImageView];
     [self configurePhotoButton];
     [self configureTextFields];
@@ -23,16 +22,14 @@
 - (void)configureImageView {
     // Instead of using a custom setter with a side effect, we can use the signal
     // from our photo property to keep the imageView's image up to date.
-    RAC(self.imageView, image) = [self.photoSignal map:^UIImage *(UIImage *image) {
-        return image;
-    }];
+    RAC(self.imageView, image) = RACObserve(self, photo);
 }
 
 - (void)configurePhotoButton {
     // For more on @weakify and @strongify, see:
     // https://github.com/ReactiveCocoa/ReactiveCocoa/blob/master/Documentation/MemoryManagement.md#signals-derived-from-self
     @weakify(self);
-    [self.photoSignal subscribeNext:^(UIImage *image) {
+    [RACObserve(self, photo) subscribeNext:^(UIImage *image) {
         @strongify(self);
         if (image) {
             [self.photoButton setTitle:@"Change photo" forState:UIControlStateNormal];
