@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@interface ReactiveSignupViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface SignupViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *photoButton;

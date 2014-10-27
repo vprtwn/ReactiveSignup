@@ -15,8 +15,8 @@
 		EBF15E8318721DF100F61C81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF15E8218721DF100F61C81 /* main.m */; };
 		EBF15E8718721DF100F61C81 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF15E8618721DF100F61C81 /* AppDelegate.m */; };
 		EBF15E8A18721DF100F61C81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBF15E8818721DF100F61C81 /* Main.storyboard */; };
-		EBF15E8D18721DF100F61C81 /* ImperativeSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF15E8C18721DF100F61C81 /* ImperativeSignupViewController.m */; };
-		EBF15E9018721DF100F61C81 /* ReactiveSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF15E8F18721DF100F61C81 /* ReactiveSignupViewController.m */; };
+		EBF15E8D18721DF100F61C81 /* FlickrSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF15E8C18721DF100F61C81 /* FlickrSearchViewController.m */; };
+		EBF15E9018721DF100F61C81 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF15E8F18721DF100F61C81 /* SignupViewController.m */; };
 		EBF15E9218721DF100F61C81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF15E9118721DF100F61C81 /* Images.xcassets */; };
 		EBF15E9918721DF100F61C81 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF15E9818721DF100F61C81 /* XCTest.framework */; };
 		EBF15E9A18721DF100F61C81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF15E7618721DF100F61C81 /* Foundation.framework */; };
@@ -49,10 +49,10 @@
 		EBF15E8518721DF100F61C81 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EBF15E8618721DF100F61C81 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EBF15E8918721DF100F61C81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EBF15E8B18721DF100F61C81 /* ImperativeSignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImperativeSignupViewController.h; sourceTree = "<group>"; };
-		EBF15E8C18721DF100F61C81 /* ImperativeSignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImperativeSignupViewController.m; sourceTree = "<group>"; };
-		EBF15E8E18721DF100F61C81 /* ReactiveSignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactiveSignupViewController.h; sourceTree = "<group>"; };
-		EBF15E8F18721DF100F61C81 /* ReactiveSignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactiveSignupViewController.m; sourceTree = "<group>"; };
+		EBF15E8B18721DF100F61C81 /* FlickrSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrSearchViewController.h; sourceTree = "<group>"; };
+		EBF15E8C18721DF100F61C81 /* FlickrSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrSearchViewController.m; sourceTree = "<group>"; };
+		EBF15E8E18721DF100F61C81 /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		EBF15E8F18721DF100F61C81 /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		EBF15E9118721DF100F61C81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EBF15E9718721DF100F61C81 /* ReactiveSignupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveSignupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF15E9818721DF100F61C81 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -124,10 +124,10 @@
 				EBF15E8518721DF100F61C81 /* AppDelegate.h */,
 				EBF15E8618721DF100F61C81 /* AppDelegate.m */,
 				EBF15E8818721DF100F61C81 /* Main.storyboard */,
-				EBF15E8B18721DF100F61C81 /* ImperativeSignupViewController.h */,
-				EBF15E8C18721DF100F61C81 /* ImperativeSignupViewController.m */,
-				EBF15E8E18721DF100F61C81 /* ReactiveSignupViewController.h */,
-				EBF15E8F18721DF100F61C81 /* ReactiveSignupViewController.m */,
+				EBF15E8E18721DF100F61C81 /* SignupViewController.h */,
+				EBF15E8F18721DF100F61C81 /* SignupViewController.m */,
+				EBF15E8B18721DF100F61C81 /* FlickrSearchViewController.h */,
+				EBF15E8C18721DF100F61C81 /* FlickrSearchViewController.m */,
 				EBF15E9118721DF100F61C81 /* Images.xcassets */,
 				EBF15E7D18721DF100F61C81 /* Supporting Files */,
 			);
@@ -295,9 +295,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF15E9018721DF100F61C81 /* ReactiveSignupViewController.m in Sources */,
+				EBF15E9018721DF100F61C81 /* SignupViewController.m in Sources */,
 				EBF15E8718721DF100F61C81 /* AppDelegate.m in Sources */,
-				EBF15E8D18721DF100F61C81 /* ImperativeSignupViewController.m in Sources */,
+				EBF15E8D18721DF100F61C81 /* FlickrSearchViewController.m in Sources */,
 				EBF15E8318721DF100F61C81 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
