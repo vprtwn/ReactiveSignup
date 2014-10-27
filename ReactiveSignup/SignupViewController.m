@@ -25,13 +25,8 @@
 
 - (void)configurePhotoButton {
     @weakify(self);
-    RACSignal *photoButtonTextSignal = [RACObserve(self, photo) map:^id(id value) {
-        if (value) {
-            return @"Change photo";
-        }
-        else {
-            return @"Add photo";
-        }
+    RACSignal *photoButtonTextSignal = [RACObserve(self, photo) map:^id(UIImage *photo) {
+        return photo ? @"Change photo" : @"Add photo";
     }];
     [self.photoButton rac_liftSelector:@selector(setTitle:forState:)
                   withSignalsFromArray:@[photoButtonTextSignal,
@@ -59,10 +54,9 @@
     self.submitButton.rac_command =
     [[RACCommand alloc] initWithEnabled:enabledSignal signalBlock:^RACSignal *(id input) {
         [SVProgressHUD show];
-
-        // IRL, this signal would make a request and send the response as a `next`.
-        RACSignal *signUpSignal = [[RACSignal return:@YES] delay:1];
-
+        RACSignal *signUpSignal = [self signUpWithImage:self.photo
+                                               username:self.usernameTextField.text
+                                               password:self.passwordTextField.text];
         [signUpSignal subscribeNext:^(id x) {
             [SVProgressHUD dismiss];
             UIAlertController *ac =
@@ -76,6 +70,12 @@
     }];
 
 
+}
+
+- (RACSignal *)signUpWithImage:(UIImage *)image
+                      username:(NSString *)username
+                      password:(NSString *)pw {
+    return [[RACSignal return:@YES] delay:1];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
