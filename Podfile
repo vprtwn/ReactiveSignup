@@ -1,3 +1,3 @@
-platform :ios, '5.0'
-pod 'ReactiveCocoa', '2.3'
-pod 'libextobjc'
+platform :ios, '8.0'
+pod 'ReactiveCocoa', '2.3.1'
+pod 'libextobjc', '0.4.1'

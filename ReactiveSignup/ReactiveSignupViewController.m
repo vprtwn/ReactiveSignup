@@ -60,13 +60,19 @@
 }
 
 - (void)configureSubmitButton {
-    RAC(self.submitButton, enabled) =
+    RACSignal *enabledSignal =
     [RACSignal combineLatest:@[RACObserve(self, photo),
                                self.usernameTextField.rac_textSignal,
                                self.passwordTextField.rac_textSignal]
                       reduce:^NSNumber *(UIImage *photo, NSString *username, NSString *password){
                           return @(photo && username.length > 0 && password.length > 0);
                       }];
+
+    self.submitButton.rac_command = [[RACCommand alloc] initWithEnabled:enabledSignal signalBlock:^RACSignal *(id input) {
+        // sign up signal
+        return [RACSignal empty];
+    }];
+
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
